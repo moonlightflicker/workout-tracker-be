@@ -1,14 +1,13 @@
 version: '3.9'
 
-name: workout-tracker-db
+name: workout-tracker
 
 services:
   mongodb:
-    image: mongo:5.0
+    image: mongo
+    restart: always
     ports:
       - 27017:27017
-    volumes:
-      - ~/apps/mongo:/data/db
     environment:
       - MONGO_INITDB_ROOT_USERNAME=workout_tracker
-      - MONGO_INITDB_ROOT_PASSWORD=secret
+      - MONGO_INITDB_ROOT_PASSWORD=!S3cr3t!
